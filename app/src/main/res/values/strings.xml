@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">TaskActivity</string>
+
+    <!-- Main Screen -->
+    <string name="main_title">My Tasks</string>
+    <string name="main_subtitle_format">%d tasks</string>
+    <string name="main_subtitle_one">1 task</string>
+    <string name="main_subtitle_empty">No tasks</string>
+
+    <!-- Empty State -->
+    <string name="empty_title">No tasks yet</string>
+    <string name="empty_subtitle">Tap + to add your first task</string>
+
+    <!-- Add Task Screen -->
+    <string name="add_task_title">New Task</string>
+    <string name="hint_title">Task title</string>
+    <string name="hint_description">Description</string>
+    <string name="btn_save">Save Task</string>
+    <string name="error_empty_title">Please enter a title</string>
+    <string name="error_empty_desc">Please enter a description</string>
+
+    <!-- Edit Task Screen -->
+    <string name="edit_task_title">Edit Task</string>
+    <string name="btn_update">Update Task</string>
+    <string name="task_completed">Task Completed</string>
+
+    <!-- Delete Dialog -->
+    <string name="delete_title">Delete Task</string>
+    <string name="delete_message">Are you sure you want to delete this task?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <!-- Priority -->
+    <string name="priority_high">High</string>
+    <string name="priority_medium">Medium</string>
+    <string name="priority_low">Low</string>
+</resources>

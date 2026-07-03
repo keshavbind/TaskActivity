@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Backgrounds -->
+    <color name="bg_dark">#0F0F1A</color>
+    <color name="bg_surface">#1A1A2E</color>
+    <color name="bg_surface_elevated">#242440</color>
+    <color name="bg_card">#1E1E35</color>
+
+    <!-- Primary Accent -->
+    <color name="primary">#6C63FF</color>
+    <color name="primary_variant">#8B5CF6</color>
+    <color name="primary_dark">#5A52D5</color>
+    <color name="primary_glow">#336C63FF</color>
+
+    <!-- Secondary Accent -->
+    <color name="secondary">#00D4AA</color>
+    <color name="secondary_variant">#00B894</color>
+
+    <!-- Priority Colors -->
+    <color name="priority_high">#FF6B6B</color>
+    <color name="priority_medium">#FFD93D</color>
+    <color name="priority_low">#6BCB77</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#A0A0C0</color>
+    <color name="text_hint">#5A5A7A</color>
+    <color name="text_completed">#4A4A6A</color>
+
+    <!-- Borders & Dividers -->
+    <color name="border">#2A2A4A</color>
+    <color name="border_input">#3A3A5A</color>
+    <color name="border_input_focused">#6C63FF</color>
+
+    <!-- Functional -->
+    <color name="error">#FF4757</color>
+    <color name="ripple">#226C63FF</color>
+    <color name="overlay">#80000000</color>
+    <color name="status_bar">#0A0A14</color>
+
+    <!-- Spinner -->
+    <color name="spinner_bg">#242440</color>
+    <color name="spinner_dropdown_bg">#1E1E35</color>
+</resources>
