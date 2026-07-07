@@ -1,27 +1,32 @@
-# TaskActivity — Premium Task Manager
+# 📝 TaskActivity — Premium Android Task Manager
 
-TaskActivity is a modern, feature-rich Android task management application built using clean architecture (MVVM) and Android Jetpack libraries. It features a premium, customized dark theme, sleek card layouts, animations, and local SQLite database persistence.
+[![Kotlin Version](https://img.shields.io/badge/Kotlin-2.0.0-blue.svg?style=flat-square&logo=kotlin)](https://kotlinlang.org)
+[![Android SDK](https://img.shields.io/badge/Android-SDK%2035%2B-green.svg?style=flat-square&logo=android)](https://developer.android.com)
+[![Architecture](https://img.shields.io/badge/Architecture-MVVM-orange.svg?style=flat-square)](https://developer.android.com/topic/libraries/architecture)
+[![Room DB](https://img.shields.io/badge/Database-Room%20DB-blue.svg?style=flat-square)](https://developer.android.com/training/data-storage/room)
 
----
-
-## 🎨 Features & UI Overview
-
-- **Premium Dark-Theme Design:** Designed with a deep slate background, glassmorphism-inspired card borders, and electric indigo gradients.
-- **Visual Priority Indicators:** Task cards feature left vertical accent strips representing priority severity:
-  - 🔴 **High:** Red
-  - 🟡 **Medium:** Yellow
-  - 🟢 **Low:** Green
-- **Reactive Task Counting:** The header card displays greeting text along with live task counts that dynamically adapt as you add or remove items.
-- **Empty State Illustration:** Displays a clean clipboard check icon when the database is empty to prompt user engagement.
-- **Completed Task States:** Toggling a task as complete automatically triggers a strikethrough effect and faded opacity for visual prioritization.
-- **Input Validation:** Clean text field feedback (TextInputLayout helpers) to ensure titles and descriptions are provided.
-- **Fluid Screen Transitions:** Activity enter/exit transitions slide horizontally for a native premium feel.
+A sleek, premium, and feature-rich Android task management application designed under Material 3 guidelines. **TaskActivity** utilizes local SQLite database persistence, reactive UI components, and clean Model-View-ViewModel (MVVM) architecture to deliver a fast and responsive user experience.
 
 ---
 
-## 🏗️ Architecture & Stack
+## 🎨 UI/UX Features & Redesign Highlights
 
-The project adheres to the **Model-View-ViewModel (MVVM)** architecture pattern:
+- **🌌 Deep Space Dark Theme:** A premium, dark slate color palette (`#0F0F1A` / `#1A1A2E`) with glowing electric indigo accents (`#6C63FF` to `#8B5CF6`).
+- **🔖 Left-Hand Priority Indicators:** Task items are visually prioritized with dynamic vertical accent strips and colored badges matching task urgency:
+  - 🔴 **High Priority:** Coral Red
+  - 🟡 **Medium Priority:** Amber Gold
+  - 🟢 **Low Priority:** Mint Green
+- **📊 Dynamic Task Counter:** A smart task counter on the home screen displays total active tasks, automatically refreshing as items are modified or deleted.
+- **✨ Faded Completion States:** Finished tasks display a strike-through title/description and a faded 60% opacity to cleanly separate pending priorities from completed records.
+- **🖼️ Empty State Illustration:** A dedicated custom checklist icon and descriptive text appear when there are no tasks, inviting the user to start adding items.
+- **🛠️ Material 3 Forms & Input Validation:** Outlined text input fields with dynamic helper messages to prevent blank submissions.
+- **🎬 Fluid Page Transitions:** High-fidelity horizontal slide transitions (`enter` and `exit` animation presets) enhance navigation between views.
+
+---
+
+## 🏗️ Clean Architecture & Tech Stack
+
+This project follows Android's recommended MVVM framework with a unidirectional data flow:
 
 ```
 ┌─────────────────────────────────────────────────────┐
@@ -31,16 +36,16 @@ The project adheres to the **Model-View-ViewModel (MVVM)** architecture pattern:
 └──────────────────────┬──────────────────────────────┘
                        │
               ┌────────▼────────┐
-              │   TaskViewModel  │  ← Launches coroutines
+              │   TaskViewModel  │  ← Launches Coroutines
               │ + TaskViewModelFactory │
               └────────┬────────┘
                        │
               ┌────────▼────────┐
-              │  TaskRepository  │  ← Clean data handling layer
+              │  TaskRepository  │  ← Clean database abstraction
               └────────┬────────┘
                        │
               ┌────────▼────────┐
-              │    TaskDao       │  ← Room Data Access Object
+              │    TaskDao       │  ← Room queries interface
               └────────┬────────┘
                        │
               ┌────────▼────────┐
@@ -49,12 +54,11 @@ The project adheres to the **Model-View-ViewModel (MVVM)** architecture pattern:
               └─────────────────┘
 ```
 
-- **Kotlin:** The programming language used.
+- **Kotlin & Coroutines:** Enables non-blocking database transactions on background threads.
 - **Room Database:** Clean SQLite abstraction layer for persistent storage.
-- **Coroutines:** Asynchronous, non-blocking operations for database transactions.
-- **LiveData:** Reactive observation of data changes from DB -> ViewModel -> UI.
-- **ViewModel:** Lifecycle-aware UI state controller.
-- **Material Design 3:** Modern, accessible UI styling framework.
+- **LiveData:** Reactive observation of data changes from the database to update the UI instantly.
+- **ViewModel:** Stores UI state in a lifecycle-conscious way, persisting across configuration changes.
+- **Material Design 3:** Custom styling overrides for buttons, cards, checkboxes, and status/navigation bars.
 
 ---
 
@@ -62,36 +66,25 @@ The project adheres to the **Model-View-ViewModel (MVVM)** architecture pattern:
 
 ```
 com.example.taskactivity/
-├── activitties/
-│   ├── MainActivity.kt        # Main task list screen
-│   ├── AddTaskActivity.kt     # Form screen for creating tasks
-│   └── EditTaskActivity.kt    # Form screen for editing tasks
-├── adapter/
-│   └── MyAdapter.kt           # Custom task card adapter
-├── database/
-│   ├── Task.kt                # Database table entity model
-│   ├── TaskDao.kt             # Room queries interface
-│   └── TaskDatabase.kt        # Database instantiation singleton
-├── repository/
-│   └── TaskRepository.kt      # Abstraction for database sources
-└── viewmodel/
-    ├── TaskViewModel.kt       # Communicates repository with activities
-    └── TaskViewModelFactory.kt# Dependency instantiation helper
+├── activitties/           # UI Screens (MainActivity, AddTaskActivity, EditTaskActivity)
+├── adapter/               # Recycler view lists (MyAdapter)
+├── database/              # Room persistence classes (Task, TaskDao, TaskDatabase)
+├── repository/            # Local data repository (TaskRepository)
+└── viewmodel/             # ViewModels & Viewmodel Factories (TaskViewModel, TaskViewModelFactory)
 ```
 
 ---
 
-## ⚙️ Building and Running
+## ⚙️ How to Build and Run
 
-1. **Prerequisites:**
-   - Android Studio (Koala or newer recommended).
-   - Android SDK 35 (minSdk 24, targetSdk 35).
-   - JDK 11+.
+### Prerequisites
+- **Android Studio** (Koala | 2024.1.1 or newer recommended)
+- **JDK 11** or newer
+- **Android SDK Platform 35** (`minSdk 24`, `targetSdk 35`)
 
-2. **Setup:**
-   - Clone or open this repository folder in Android Studio.
-   - Wait for Android Studio to index files and perform a **Gradle Sync**.
-
-3. **Execution:**
-   - Connect an Android device or launch an emulator.
-   - Click the **Run** button (green arrow icon) in Android Studio to build and deploy.
+### Setup Instructions
+1. Clone or download this project workspace.
+2. Open Android Studio and select **File > Open**, navigating to the project directory root.
+3. Allow Android Studio to fetch dependencies and perform a **Gradle Sync**.
+4. Set up an Android Virtual Device (AVD) or connect a physical Android device.
+5. Click **Run (green play button)** in the top toolbar to build the Debug APK and run the application.
