@@ -24,6 +24,20 @@ A sleek, premium, and feature-rich Android task management application designed 
 
 ---
 
+## 📸 App Screenshots
+
+<p align="center">
+  <img src="screenshots_chat/img1.jpeg" width="220"/>
+  <img src="screenshots_chat/img2.jpeg" width="220"/>
+</p>
+
+<p align="center">
+  <img src="screenshots_chat/img3.jpeg" width="220"/>
+  <img src="screenshots_chat/img4.jpeg" width="220"/>
+</p>
+
+---
+
 ## 🏗️ Clean Architecture & Tech Stack
 
 This project follows Android's recommended MVVM framework with a unidirectional data flow:
